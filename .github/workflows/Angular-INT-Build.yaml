@@ -1,0 +1,11 @@
+name: Alight Org INT Build Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - main-ng[0-9]+
+jobs:
+  cicd-Build-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/build-pipeline.yaml@main
+    secrets: inherit

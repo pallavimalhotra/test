@@ -1,0 +1,10 @@
+name: Alight Org Hotfix Angular Tag Pipeline
+run-name: Create Tag for ${{ github.event.client_payload.branch }} and ${{ github.event.client_payload.sha }}
+on:
+  repository_dispatch:
+    types:
+      - deployTag
+jobs:
+  Hotfix-Angular-Tag-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/Hotfix-Angular-Tag-Pipeline.yaml@main
+    secrets: inherit

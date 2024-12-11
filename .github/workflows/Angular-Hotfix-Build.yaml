@@ -1,0 +1,21 @@
+name: Alight Org Hotfix Angular Build Pipeline
+run-name:  Building Artifacts for ${{ inputs.branch }} code
+on:
+  workflow_dispatch:
+    inputs:
+      Lifecycle:
+        type: choice
+        description: 'Lifecycle of Tag(from which hotfix branch was created)'
+        required: true
+        options: 
+        - qa
+        - qc
+        - pu
+      Branch:
+        description: Hotfix branch to be built.
+        required: true
+        type: string       
+jobs:
+  Hotfix-Angular-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/Hotfix-Angular-Build-Pipeline.yaml@main
+    secrets: inherit  

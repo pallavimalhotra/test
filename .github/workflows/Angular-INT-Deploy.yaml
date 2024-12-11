@@ -1,0 +1,10 @@
+name: Alight Org INT Deploy Pipeline
+run-name: Deploy of ${{ github.event.client_payload.branch }}(${{ github.event.client_payload.sha }}) to ${{ github.event.client_payload.Lifecycle }} lifecycle
+on:
+  repository_dispatch:
+    types:
+      - deploy
+jobs:
+  cicd-Deploy-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/deploy-pipeline.yaml@main
+    secrets: inherit

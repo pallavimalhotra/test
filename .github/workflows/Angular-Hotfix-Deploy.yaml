@@ -1,0 +1,20 @@
+name: Alight Org Hotfix Angular Deploy Pipeline
+run-name:  Hotfix tag ${{ inputs.tag }} promoting to ${{ inputs.lifecycle }}
+on:
+  workflow_dispatch:
+    inputs:
+      Lifecycle:
+        type: choice
+        description: 'Lifecycle'
+        required: true
+        options: 
+        - dev
+        - int
+      Tag:
+        description: Hotfix tag to be deployed.
+        required: true
+        type: string       
+jobs:
+  Hotfix-Angular-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/Hotfix-Angular-Deploy-Pipeline.yaml@main
+    secrets: inherit 

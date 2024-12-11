@@ -1,0 +1,23 @@
+name: Alight Org WC Test Migration Pipeline
+run-name: WC Migration of ${{ github.event.client_payload.Tag }} to ${{ github.event.client_payload.Lifecycle }} lifecycle
+on:
+  repository_dispatch:
+    types:
+      - deployWC-Test
+    inputs:
+      Lifecycle:
+        description: Ace Lifecycle
+        required: true
+        type: string
+      Name:
+        description: Name.
+        required: true
+        type: string        
+      Version:
+        description: Version.
+        required: true
+        type: string    
+jobs:
+  WC-Test-Pipeline-For-Angular:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/WC-Test-Pipeline-For-Angular.yaml@main
+    secrets: inherit

@@ -1,0 +1,13 @@
+name: Alight Org QA Angular Deploy Pipeline
+run-name: QA Deploy of ${{ inputs.tag }} 
+on:
+  workflow_dispatch:
+    inputs:
+      Tag:
+        description: Feature tag to be promoted.
+        required: true
+        type: string
+jobs:
+  QA-Angular-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/QA-Pipeline-For-Angular.yaml@main
+    secrets: inherit  

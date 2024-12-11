@@ -1,0 +1,12 @@
+name: Alight Org QA CDN Migration Pipeline
+run-name: Deploy Tag ${{ github.event.client_payload.Tag }} to Lifecycle ${{ github.event.client_payload.Lifecycle }}
+
+on:
+  repository_dispatch:
+    types:
+      - AppWC-Test
+
+jobs:
+  QA-Angular-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/QA-CDN-Pipeline-For-Angular.yaml@main
+    secrets: inherit

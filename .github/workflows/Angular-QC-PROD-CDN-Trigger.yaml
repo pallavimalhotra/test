@@ -1,0 +1,12 @@
+name: Alight Org QC/PROD CDN Migration Pipeline
+run-name: Deploy Tag ${{ github.event.client_payload.Tag }} to Lifecycle ${{ github.event.client_payload.Lifecycle }}
+
+on:
+  repository_dispatch:
+    types:
+      - AppWC-QC-PROD
+
+jobs:
+  QA-Angular-pipeline:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/QC-PROD-CDN-Pipeline-For-Angular.yaml@main
+    secrets: inherit

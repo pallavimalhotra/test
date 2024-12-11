@@ -1,0 +1,25 @@
+name: Alight Org WC QC/PROD Migration Pipeline
+run-name: WC Migration of ${{ github.event.client_payload.Tag }} to ${{ github.event.client_payload.Lifecycle }} lifecycle
+on:
+  repository_dispatch:
+    types:
+      - deployWC-QC-PROD
+    inputs:
+      githubUrl:
+        description: 'Github Repo url'
+        required: true
+      tag:
+        description: 'Fature tag'
+        required: true
+      lifecycle:
+        description: Ace Lifecycle
+        required: true
+        type: string
+      version:
+        description: Version.
+        required: true
+        type: string    
+jobs:
+  WC-QC-PROD-Pipeline-For-Angular:
+    uses: AlightEngineering/ADA-CI-Pipeline/.github/workflows/WC-QC-PROD-Pipeline-For-Angular.yaml@main
+    secrets: inherit
